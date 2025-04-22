@@ -1,7 +1,10 @@
 package matrix;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Matriz {
-	int[][] matriz;
+	private int[][] matriz;
 
 	public Matriz(int[][] matriz) {
 		this.matriz = matriz;
@@ -42,5 +45,17 @@ public class Matriz {
 			out += "\n";
 		}
 		return out;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Matriz matriz1)) return false;
+		return Objects.deepEquals(matriz, matriz1.matriz);
+	}
+
+	@Override
+	public int hashCode() {
+		return Arrays.deepHashCode(matriz);
 	}
 }
